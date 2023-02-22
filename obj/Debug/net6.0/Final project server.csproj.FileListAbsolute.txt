@@ -1,0 +1,38 @@
+C:\Users\97250\Desktop\final project P2\Final-Project---Server-main\Final project server\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\97250\Desktop\final project P2\Final-Project---Server-main\Final project server\bin\Debug\net6.0\appsettings.json
+C:\Users\97250\Desktop\final project P2\Final-Project---Server-main\Final project server\bin\Debug\net6.0\Final project server.exe
+C:\Users\97250\Desktop\final project P2\Final-Project---Server-main\Final project server\bin\Debug\net6.0\Final project server.deps.json
+C:\Users\97250\Desktop\final project P2\Final-Project---Server-main\Final project server\bin\Debug\net6.0\Final project server.runtimeconfig.json
+C:\Users\97250\Desktop\final project P2\Final-Project---Server-main\Final project server\bin\Debug\net6.0\Final project server.dll
+C:\Users\97250\Desktop\final project P2\Final-Project---Server-main\Final project server\bin\Debug\net6.0\Final project server.pdb
+C:\Users\97250\Desktop\final project P2\Final-Project---Server-main\Final project server\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\97250\Desktop\final project P2\Final-Project---Server-main\Final project server\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\97250\Desktop\final project P2\Final-Project---Server-main\Final project server\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\97250\Desktop\final project P2\Final-Project---Server-main\Final project server\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\97250\Desktop\final project P2\Final-Project---Server-main\Final project server\bin\Debug\net6.0\System.Data.SqlClient.dll
+C:\Users\97250\Desktop\final project P2\Final-Project---Server-main\Final project server\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
+C:\Users\97250\Desktop\final project P2\Final-Project---Server-main\Final project server\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
+C:\Users\97250\Desktop\final project P2\Final-Project---Server-main\Final project server\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
+C:\Users\97250\Desktop\final project P2\Final-Project---Server-main\Final project server\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\97250\Desktop\final project P2\Final-Project---Server-main\Final project server\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\97250\Desktop\final project P2\Final-Project---Server-main\Final project server\obj\Debug\net6.0\Final project server.csproj.AssemblyReference.cache
+C:\Users\97250\Desktop\final project P2\Final-Project---Server-main\Final project server\obj\Debug\net6.0\Final project server.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\97250\Desktop\final project P2\Final-Project---Server-main\Final project server\obj\Debug\net6.0\Final project server.AssemblyInfoInputs.cache
+C:\Users\97250\Desktop\final project P2\Final-Project---Server-main\Final project server\obj\Debug\net6.0\Final project server.AssemblyInfo.cs
+C:\Users\97250\Desktop\final project P2\Final-Project---Server-main\Final project server\obj\Debug\net6.0\Final project server.csproj.CoreCompileInputs.cache
+C:\Users\97250\Desktop\final project P2\Final-Project---Server-main\Final project server\obj\Debug\net6.0\Final project server.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\97250\Desktop\final project P2\Final-Project---Server-main\Final project server\obj\Debug\net6.0\Final project server.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\97250\Desktop\final project P2\Final-Project---Server-main\Final project server\obj\Debug\net6.0\staticwebassets\msbuild.Final project server.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\97250\Desktop\final project P2\Final-Project---Server-main\Final project server\obj\Debug\net6.0\staticwebassets\msbuild.build.Final project server.props
+C:\Users\97250\Desktop\final project P2\Final-Project---Server-main\Final project server\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.Final project server.props
+C:\Users\97250\Desktop\final project P2\Final-Project---Server-main\Final project server\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.Final project server.props
+C:\Users\97250\Desktop\final project P2\Final-Project---Server-main\Final project server\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\97250\Desktop\final project P2\Final-Project---Server-main\Final project server\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\97250\Desktop\final project P2\Final-Project---Server-main\Final project server\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\97250\Desktop\final project P2\Final-Project---Server-main\Final project server\obj\Debug\net6.0\scopedcss\bundle\Final project server.styles.css
+C:\Users\97250\Desktop\final project P2\Final-Project---Server-main\Final project server\obj\Debug\net6.0\Final project server.csproj.CopyComplete
+C:\Users\97250\Desktop\final project P2\Final-Project---Server-main\Final project server\obj\Debug\net6.0\Final project server.dll
+C:\Users\97250\Desktop\final project P2\Final-Project---Server-main\Final project server\obj\Debug\net6.0\refint\Final project server.dll
+C:\Users\97250\Desktop\final project P2\Final-Project---Server-main\Final project server\obj\Debug\net6.0\Final project server.pdb
+C:\Users\97250\Desktop\final project P2\Final-Project---Server-main\Final project server\obj\Debug\net6.0\Final project server.genruntimeconfig.cache
+C:\Users\97250\Desktop\final project P2\Final-Project---Server-main\Final project server\obj\Debug\net6.0\ref\Final project server.dll
