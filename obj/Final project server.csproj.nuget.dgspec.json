@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\97250\\Desktop\\final project P2\\Final-Project---Server-main\\Final project server\\Final project server.csproj": {}
+    "C:\\Users\\talfr\\Desktop\\Final-Project---Server-main\\Final project server\\Final project server.csproj": {}
   },
   "projects": {
-    "C:\\Users\\97250\\Desktop\\final project P2\\Final-Project---Server-main\\Final project server\\Final project server.csproj": {
+    "C:\\Users\\talfr\\Desktop\\Final-Project---Server-main\\Final project server\\Final project server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\97250\\Desktop\\final project P2\\Final-Project---Server-main\\Final project server\\Final project server.csproj",
+        "projectUniqueName": "C:\\Users\\talfr\\Desktop\\Final-Project---Server-main\\Final project server\\Final project server.csproj",
         "projectName": "Final project server",
-        "projectPath": "C:\\Users\\97250\\Desktop\\final project P2\\Final-Project---Server-main\\Final project server\\Final project server.csproj",
-        "packagesPath": "C:\\Users\\97250\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\97250\\Desktop\\final project P2\\Final-Project---Server-main\\Final project server\\obj\\",
+        "projectPath": "C:\\Users\\talfr\\Desktop\\Final-Project---Server-main\\Final project server\\Final project server.csproj",
+        "packagesPath": "C:\\Users\\talfr\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\talfr\\Desktop\\Final-Project---Server-main\\Final project server\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\97250\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\talfr\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
