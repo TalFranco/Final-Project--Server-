@@ -9,25 +9,25 @@ using Final_project_server.Models;
 using Microsoft.AspNetCore.DataProtection.KeyManagement;
 using Microsoft.Extensions.Hosting;
 
-    public class DBservices
+public class DBservices
+{
+    public SqlDataAdapter da;
+    public DataTable dt;
+
+
+    //--------------------------------------------------------------------------------------------------
+    // This method creates a connection to the database according to the connectionString name in the web.config 
+    //--------------------------------------------------------------------------------------------------
+    public SqlConnection connect(String conString)
     {
-        public SqlDataAdapter da;
-        public DataTable dt;
-
-
-        //--------------------------------------------------------------------------------------------------
-        // This method creates a connection to the database according to the connectionString name in the web.config 
-        //--------------------------------------------------------------------------------------------------
-        public SqlConnection connect(String conString)
-        {
-            // read the connection string from the configuration file
-            IConfigurationRoot configuration = new ConfigurationBuilder()
-            .AddJsonFile("appsettings.json").Build();
-            string cStr = configuration.GetConnectionString("myProjDB");
-            SqlConnection con = new SqlConnection(cStr);
-            con.Open();
-            return con;
-        }
+        // read the connection string from the configuration file
+        IConfigurationRoot configuration = new ConfigurationBuilder()
+        .AddJsonFile("appsettings.json").Build();
+        string cStr = configuration.GetConnectionString("myProjDB");
+        SqlConnection con = new SqlConnection(cStr);
+        con.Open();
+        return con;
+    }
     // This method read all the users from the table
     //--------------------------------------------------------------------------------- 
     public List<User> ReadUsers()
@@ -357,7 +357,7 @@ using Microsoft.Extensions.Hosting;
         try
         {
             //int numEffected = cmd.ExecuteNonQuery(); // execute the command
-            int id= Convert.ToInt32(cmd.ExecuteScalar());
+            int id = Convert.ToInt32(cmd.ExecuteScalar());
             return id;
         }
         catch (Exception ex)
@@ -392,7 +392,7 @@ using Microsoft.Extensions.Hosting;
         cmd.CommandType = System.Data.CommandType.StoredProcedure; // the type of the command, can also be stored procedure
 
         cmd.Parameters.AddWithValue("@Description", closet.Description);
-     
+
         return cmd;
     }
 
@@ -424,7 +424,7 @@ using Microsoft.Extensions.Hosting;
 
             while (dataReader.Read())
             {
-                Item item  = new Item();
+                Item item = new Item();
 
                 item.Id = Convert.ToInt32(dataReader["ID"]);
                 item.Closet_ID = Convert.ToInt32(dataReader["Closet_ID"]);
@@ -441,7 +441,7 @@ using Microsoft.Extensions.Hosting;
                 itemsList.Add(item);
 
 
-                }
+            }
 
             return itemsList;
         }
@@ -541,7 +541,7 @@ using Microsoft.Extensions.Hosting;
         cmd.Parameters.AddWithValue("@Closet_ID", item.Closet_ID);
         cmd.Parameters.AddWithValue("@Type_name_ID", item.Type_name_ID);
         cmd.Parameters.AddWithValue("@Brand_name_ID", item.Brand_name_ID);
-        cmd.Parameters.AddWithValue("@item.Name", item.Name);
+        cmd.Parameters.AddWithValue("@Name", item.Name);
         cmd.Parameters.AddWithValue("@Sale_status", item.Sale_status);
         cmd.Parameters.AddWithValue("@Price", item.Price);
         cmd.Parameters.AddWithValue("@Color", item.Color);
@@ -581,21 +581,21 @@ using Microsoft.Extensions.Hosting;
 
             while (dataReader.Read())
             {
-                Item item = new Item();
+                Item item1 = new Item();
 
-                item.Id = Convert.ToInt32(dataReader["ID"]);
-                item.Closet_ID = Convert.ToInt32(dataReader["Closet_ID"]);
-                item.Type_name_ID = Convert.ToInt32(dataReader["Type_name_ID"]);
-                item.Brand_name_ID = Convert.ToInt32(dataReader["Brand_name_ID"]);
-                item.Name = dataReader["Name"].ToString();
-                item.Sale_status = Convert.ToBoolean(dataReader["Sale_status"]);
-                item.Price = Convert.ToInt32(dataReader["Price"]);
-                item.Color = dataReader["Color"].ToString();
-                item.Size = dataReader["Size"].ToString();
-                item.Description = dataReader["Description"].ToString();
-                item.Shipping_method = dataReader["Shipping_method"].ToString();
+                item1.Id = Convert.ToInt32(dataReader["ID"]);
+                item1.Closet_ID = Convert.ToInt32(dataReader["Closet_ID"]);
+                item1.Type_name_ID = Convert.ToInt32(dataReader["Type_name_ID"]);
+                item1.Brand_name_ID = Convert.ToInt32(dataReader["Brand_name_ID"]);
+                item1.Name = dataReader["Name"].ToString();
+                item1.Sale_status = Convert.ToBoolean(dataReader["Sale_status"]);
+                item1.Price = Convert.ToInt32(dataReader["Price"]);
+                item1.Color = dataReader["Color"].ToString();
+                item1.Size = dataReader["Size"].ToString();
+                item1.Description = dataReader["Description"].ToString();
+                item1.Shipping_method = dataReader["Shipping_method"].ToString();
 
-                itemsList.Add(item);
+                itemsList.Add(item1);
             }
             return itemsList;
 
@@ -635,6 +635,150 @@ using Microsoft.Extensions.Hosting;
 
         cmd.Parameters.AddWithValue("@Closet_ID", item.Closet_ID);
 
+
+        return cmd;
+    }
+
+    //--------------------------------------------------------------------------------------------------
+    // This method updates a item to the items table 
+    //--------------------------------------------------------------------------------------------------
+    public int UpadteItem(Item item)
+    {
+
+        SqlConnection con;
+        SqlCommand cmd;
+
+        try
+        {
+            con = connect("myProjDB"); // create the connection
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            throw (ex);
+        }
+
+
+        cmd = CreateUpdateItemCommandSP("spUpdateItem", con, item);             // create the command
+
+        try
+        {
+            int numEffected = cmd.ExecuteNonQuery(); // execute the command
+            return numEffected;
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            throw (ex);
+        }
+
+        finally
+        {
+            if (con != null)
+            {
+                // close the db connection
+                con.Close();
+            }
+        }
+    }
+
+    //---------------------------------------------------------------------------------
+    // Create the UpdatItem SqlCommand
+    //---------------------------------------------------------------------------------
+    private SqlCommand CreateUpdateItemCommandSP(String spName, SqlConnection con, Item item)
+    {
+
+        SqlCommand cmd = new SqlCommand(); // create the command object
+
+        cmd.Connection = con;              // assign the connection to the command object
+
+        cmd.CommandText = spName;      // can be Select, Insert, Update, Delete 
+
+        cmd.CommandTimeout = 10;           // Time to wait for the execution' The default is 30 seconds
+
+        cmd.CommandType = System.Data.CommandType.StoredProcedure; // the type of the command, can also be stored procedure
+
+
+        //send the parameters that the SQL need to the SP
+        //Do not insert the values that SQL inserts automatically !! 
+        cmd.Parameters.AddWithValue("@ID", item.Id);
+        cmd.Parameters.AddWithValue("@Closet_ID", item.Closet_ID);
+        cmd.Parameters.AddWithValue("@Type_name_ID", item.Type_name_ID);
+        cmd.Parameters.AddWithValue("@Brand_name_ID", item.Brand_name_ID);
+        cmd.Parameters.AddWithValue("@Name", item.Name);
+        cmd.Parameters.AddWithValue("@Sale_status", item.Sale_status);
+        cmd.Parameters.AddWithValue("@Price", item.Price);
+        cmd.Parameters.AddWithValue("@Color", item.Color);
+        cmd.Parameters.AddWithValue("@Size", item.Size);
+        cmd.Parameters.AddWithValue("@Description", item.Description);
+        cmd.Parameters.AddWithValue("@Shipping_method", item.Shipping_method);
+        return cmd;
+    }
+
+    //--------------------------------------------------------------------------------------------------
+    // This method updates a closet to the items table 
+    //--------------------------------------------------------------------------------------------------
+    public int UpadteCloset(Closet closet)
+    {
+
+        SqlConnection con;
+        SqlCommand cmd;
+
+        try
+        {
+            con = connect("myProjDB"); // create the connection
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            throw (ex);
+        }
+
+
+        cmd = CreateUpdateClosetCommandSP("spUpdateCloset", con, closet);             // create the command
+
+        try
+        {
+            int numEffected = cmd.ExecuteNonQuery(); // execute the command
+            return numEffected;
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            throw (ex);
+        }
+
+        finally
+        {
+            if (con != null)
+            {
+                // close the db connection
+                con.Close();
+            }
+        }
+    }
+
+    //---------------------------------------------------------------------------------
+    // Create the Updatecloset SqlCommand
+    //---------------------------------------------------------------------------------
+    private SqlCommand CreateUpdateClosetCommandSP(String spName, SqlConnection con, Closet closet)
+    {
+
+        SqlCommand cmd = new SqlCommand(); // create the command object
+
+        cmd.Connection = con;              // assign the connection to the command object
+
+        cmd.CommandText = spName;      // can be Select, Insert, Update, Delete 
+
+        cmd.CommandTimeout = 10;           // Time to wait for the execution' The default is 30 seconds
+
+        cmd.CommandType = System.Data.CommandType.StoredProcedure; // the type of the command, can also be stored procedure
+
+
+        //send the parameters that the SQL need to the SP
+        //Do not insert the values that SQL inserts automatically !! 
+        cmd.Parameters.AddWithValue("@ID", closet.Id);
+        cmd.Parameters.AddWithValue("@Description", closet.Description);
 
         return cmd;
     }

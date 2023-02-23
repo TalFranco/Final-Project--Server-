@@ -36,3 +36,6 @@ C:\Users\97250\Desktop\final project P2\Final-Project---Server-main\Final projec
 C:\Users\97250\Desktop\final project P2\Final-Project---Server-main\Final project server\obj\Debug\net6.0\Final project server.pdb
 C:\Users\97250\Desktop\final project P2\Final-Project---Server-main\Final project server\obj\Debug\net6.0\Final project server.genruntimeconfig.cache
 C:\Users\97250\Desktop\final project P2\Final-Project---Server-main\Final project server\obj\Debug\net6.0\ref\Final project server.dll
+C:\Users\97250\Desktop\PUSH\obj\Debug\net6.0\Final project server.dll
+C:\Users\97250\Desktop\PUSH\obj\Debug\net6.0\refint\Final project server.dll
+C:\Users\97250\Desktop\PUSH\obj\Debug\net6.0\Final project server.pdb

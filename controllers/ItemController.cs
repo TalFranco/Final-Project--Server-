@@ -22,20 +22,16 @@ namespace Final_project_server.controllers
             }
             else
             {
-                return NotFound("No users yet");
+                return NotFound("No items yet");
             }
         }
 
         // GET api/<ItemController>/5
-        [HttpGet("{Closet_ID}")]
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
+        [HttpGet("ClosetId/{ClosetId}")]
         public IActionResult Get(int ClosetId)
         {
             Item item = new Item();
-            item.Closet_ID= ClosetId;
+            item.Closet_ID = ClosetId;
             List<Item> itemsList = item.ReadByCloset();
             if (itemsList.Count > 0)
             {
@@ -43,7 +39,7 @@ namespace Final_project_server.controllers
             }
             else
             {
-                return NotFound();
+                return NotFound("No items yet");
 
             }
         }
@@ -57,9 +53,11 @@ namespace Final_project_server.controllers
         }
 
         // PUT api/<ItemController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut]
+        public bool Put([FromBody] Item item)
         {
+            return item.Update();
+
         }
 
         // DELETE api/<ItemController>/5

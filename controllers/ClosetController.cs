@@ -42,9 +42,11 @@ namespace Final_project_server.controllers
         }
 
         // PUT api/<ClosetController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut]
+        public bool Put([FromBody] Closet closet)
         {
+            return closet.Update();
+
         }
 
         // DELETE api/<ClosetController>/5

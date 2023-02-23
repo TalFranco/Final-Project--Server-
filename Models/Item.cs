@@ -14,7 +14,7 @@
         string description;
         string shipping_method;
 
-        List<Item> itemsList =new List<Item>();
+        List<Item> itemsList = new List<Item>();
 
         public int Id { get => id; set => id = value; }
         public int Closet_ID { get => closet_ID; set => closet_ID = value; }
@@ -45,11 +45,21 @@
             DBservices dbs = new DBservices();
             if (dbs.InsertItem(this) == 1)
             {
-                closetsList.Add(this);
+                itemsList.Add(this);
                 return true;
             }
             return false;
 
         }
+        public bool Update()
+        {
+            DBservices dbs = new DBservices();
+            if (dbs.UpadteItem(this) == 1)
+            {
+                return true;
+            }
+            return false;
+        }
+
     }
 }

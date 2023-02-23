@@ -18,14 +18,24 @@
 
         public bool Insert()
         {
-                DBservices dbs = new DBservices();
-                if (dbs.InsertCloset(this) > 0)
-                {
+            DBservices dbs = new DBservices();
+            if (dbs.InsertCloset(this) > 0)
+            {
                 closetsList.Add(this);
-                    return true;
-                }
-                return false;
+                return true;
+            }
+            return false;
 
+        }
+
+        public bool Update()
+        {
+            DBservices dbs = new DBservices();
+            if (dbs.UpadteCloset(this) == 1)
+            {
+                return true;
+            }
+            return false;
         }
 
 
