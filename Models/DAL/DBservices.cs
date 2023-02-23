@@ -552,6 +552,93 @@ using Microsoft.Extensions.Hosting;
         return cmd;
     }
 
+    // This method read item by its closet
+    //---------------------------------------------------------------------------------
+    public List<Item> ItemByCloset(Item item)
+    {
+
+        SqlConnection con;
+        SqlCommand cmd;
+
+        try
+        {
+            con = connect("myProjDB"); // create the connection
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            throw (ex);
+        }
+
+
+        cmd = CreateItemByClosetCommandSP("spItemByCloset", con, item);// create the command
+
+        List<Item> itemsList = new List<Item>();
+
+        try
+        {
+            SqlDataReader dataReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+            while (dataReader.Read())
+            {
+                Item item = new Item();
+
+                item.Id = Convert.ToInt32(dataReader["ID"]);
+                item.Closet_ID = Convert.ToInt32(dataReader["Closet_ID"]);
+                item.Type_name_ID = Convert.ToInt32(dataReader["Type_name_ID"]);
+                item.Brand_name_ID = Convert.ToInt32(dataReader["Brand_name_ID"]);
+                item.Name = dataReader["Name"].ToString();
+                item.Sale_status = Convert.ToBoolean(dataReader["Sale_status"]);
+                item.Price = Convert.ToInt32(dataReader["Price"]);
+                item.Color = dataReader["Color"].ToString();
+                item.Size = dataReader["Size"].ToString();
+                item.Description = dataReader["Description"].ToString();
+                item.Shipping_method = dataReader["Shipping_method"].ToString();
+
+                itemsList.Add(item);
+            }
+            return itemsList;
+
+        }
+        catch (Exception ex)
+        {
+
+            throw (ex);
+        }
+
+        finally
+        {
+            if (con != null)
+            {
+                // close the db connection
+                con.Close();
+            }
+        }
+
+    }
+
+    // Create the Login SqlCommand
+    //---------------------------------------------------------------------------------
+    private SqlCommand CreateItemByClosetCommandSP(String spName, SqlConnection con, Item item)
+    {
+
+        SqlCommand cmd = new SqlCommand(); // create the command object
+
+        cmd.Connection = con;              // assign the connection to the command object
+
+        cmd.CommandText = spName;      // can be Select, Insert, Update, Delete 
+
+        cmd.CommandTimeout = 10;           // Time to wait for the execution' The default is 30 seconds
+
+        cmd.CommandType = System.Data.CommandType.StoredProcedure; // the type of the command, can also be stored procedure
+
+
+        cmd.Parameters.AddWithValue("@Closet_ID", item.Closet_ID);
+
+
+        return cmd;
+    }
+
 
 
 }

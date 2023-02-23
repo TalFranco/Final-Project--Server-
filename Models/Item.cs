@@ -33,5 +33,23 @@
             DBservices dbs = new DBservices();
             return dbs.ReadItems();
         }
+
+        public List<Item> ReadByCloset()
+        {
+            DBservices dbs = new DBservices();
+            return dbs.ItemByCloset(this);
+        }
+
+        public bool Insert()
+        {
+            DBservices dbs = new DBservices();
+            if (dbs.InsertItem(this) == 1)
+            {
+                closetsList.Add(this);
+                return true;
+            }
+            return false;
+
+        }
     }
 }

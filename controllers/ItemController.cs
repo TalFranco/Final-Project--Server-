@@ -27,10 +27,25 @@ namespace Final_project_server.controllers
         }
 
         // GET api/<ItemController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet("{Closet_ID}")]
+        //public string Get(int id)
+        //{
+        //    return "value";
+        //}
+        public IActionResult Get(int ClosetId)
         {
-            return "value";
+            Item item = new Item();
+            item.Closet_ID= ClosetId;
+            List<Item> itemsList = item.ReadByCloset();
+            if (itemsList.Count > 0)
+            {
+                return Ok(itemsList);
+            }
+            else
+            {
+                return NotFound();
+
+            }
         }
 
         // POST api/<ItemController>
