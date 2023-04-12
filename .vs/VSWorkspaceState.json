@@ -1,6 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\controllers",
+    "\\Models",
+    "\\Models\\DAL"
   ],
+  "SelectedNode": "\\Properties",
   "PreviewInSolutionExplorer": false
 }
