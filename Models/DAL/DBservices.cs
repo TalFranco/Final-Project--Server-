@@ -29,7 +29,7 @@ public class DBservices
         return con;
     }
     // This method read all the users from the table
-    //--------------------------------------------------------------------------------- 
+    //---------------------------------------------------------------------------------
     public List<User> ReadUsers()
     {
         SqlConnection con;
