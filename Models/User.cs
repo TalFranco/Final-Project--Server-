@@ -51,15 +51,15 @@ namespace Final_project_server.Models
             DBservices dbs = new DBservices();
             return dbs.Login(this);
         }
-        //public bool Update()
-        //{
-        //    DBservices dbs = new DBservices();
-        //    if (dbs.UpadteUser(this) == 1)
-        //    {
-        //        return true;
-        //    }
-        //    return false;
-        //}
+        public bool Update()
+        {
+            DBservices dbs = new DBservices();
+            if (dbs.UpadteUser(this) == 1)
+            {
+                return true;
+            }
+            return false;
+        }
 
 
 
